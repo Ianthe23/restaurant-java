@@ -4,52 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/MenuItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Order.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/OrderItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Pair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/Table.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/EValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/IValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/IValidatorFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/MenuItemValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/OrderItemValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/OrderValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/TableValidator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/domain/validator/ValidatorFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/enums/Status.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/RepoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/ServiceException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/exceptions/ValidationException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/restaurante/HelloApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/restaurante/HelloController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/IRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/MenuItemDataBaseRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderItemDataBaseRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/EDataBaseStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/IDataBaseFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/utils/AbstractDataBaseRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/database/utils/DataBaseAcces.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="first commit" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Exception" />
-        <option value="Interface" />
         <option value="Enum" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -114,11 +69,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737186869167</updated>
-      <workItem from="1737186870158" duration="6474000" />
+      <workItem from="1737186870158" duration="6925000" />
     </task>
+    <task id="LOCAL-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1737194809814</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737194809814</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="first commit" />
   </component>
 </project>
