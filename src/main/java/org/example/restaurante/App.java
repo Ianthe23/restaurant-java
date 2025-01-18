@@ -1,6 +1,7 @@
 package org.example.restaurante;
 
 import controller.AngajatiController;
+import controller.MenuController;
 import domain.*;
 import domain.validator.EValidator;
 import domain.validator.IValidator;
@@ -8,7 +9,10 @@ import domain.validator.ValidatorFactory;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import repo.IMenuItemRepo;
 import repo.database.factory.DataBaseRepoFactory;
 import repo.database.factory.EDataBaseStrategy;
 import repo.database.utils.AbstractDataBaseRepo;
@@ -17,13 +21,13 @@ import service.RestaurantService;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.stream.StreamSupport;
 
 public class App extends Application {
     private DataBaseAcces data;
     private AbstractDataBaseRepo<String, MenuItem> menuItemRepo;
     private AbstractDataBaseRepo<String, Table> tableRepo;
     private AbstractDataBaseRepo<String, Order> orderRepo;
-    private AbstractDataBaseRepo<Pair<String, String>, OrderItem> orderItemRepo;
     public RestaurantService service;
 
 
@@ -34,7 +38,6 @@ public class App extends Application {
         IValidator menuItemValidator = validatorFactory.createValidator(EValidator.MENU_ITEM);
         IValidator tableValidator = validatorFactory.createValidator(EValidator.TABLE);
         IValidator orderValidator = validatorFactory.createValidator(EValidator.ORDER);
-        IValidator orderItemValidator = validatorFactory.createValidator(EValidator.ORDER_ITEM);
 
 
         String url = "jdbc:postgresql://localhost:5432/restaurant";
@@ -49,15 +52,37 @@ public class App extends Application {
         }
 
         DataBaseRepoFactory repoFactory = new DataBaseRepoFactory(data);
-        this.menuItemRepo = repoFactory.createRepo(EDataBaseStrategy.MENU_ITEM, menuItemValidator);
-        this.tableRepo = repoFactory.createRepo(EDataBaseStrategy.TABLE, tableValidator);
-        this.orderRepo = repoFactory.createRepo(EDataBaseStrategy.ORDER, orderValidator);
-        this.orderItemRepo = repoFactory.createRepo(EDataBaseStrategy.ORDER_ITEM, orderItemValidator);
-        this.service = new RestaurantService(menuItemRepo, tableRepo, orderRepo, orderItemRepo);
+        this.menuItemRepo = repoFactory.createRepo(EDataBaseStrategy.menu_item, menuItemValidator);
+        this.tableRepo = repoFactory.createRepo(EDataBaseStrategy.restaurant_table, tableValidator);
+        this.orderRepo = repoFactory.createRepo(EDataBaseStrategy.restaurant_order, orderValidator);
+        this.service = new RestaurantService(tableRepo, orderRepo, (IMenuItemRepo) menuItemRepo);
         initView(stage);
         stage.setMinHeight(400);
         stage.setMinWidth(600);
         stage.show();
+
+        Iterable<Table> tables = this.service.getTables();
+        StreamSupport.stream(tables.spliterator(), false).forEach(table->openWindow(table.getId()));
+    }
+
+    private void openWindow(String windowTitle) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/restaurante/views/menu-view.fxml"));
+            AnchorPane root = loader.load();
+
+            // Get the controller and set data
+            MenuController controller = loader.getController();
+            controller.setService(service);
+            controller.setLabelText(windowTitle);
+
+            // Create a new stage (window)
+            Stage stage = new Stage();
+            stage.setTitle("Table");
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void initView(Stage primaryStage) throws IOException {

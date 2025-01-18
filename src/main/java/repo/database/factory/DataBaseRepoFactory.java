@@ -3,7 +3,6 @@ package repo.database.factory;
 import exceptions.RepoException;
 import repo.database.MenuItemDataBaseRepo;
 import repo.database.OrderDataBaseRepo;
-import repo.database.OrderItemDataBaseRepo;
 import repo.database.TableDataBaseRepo;
 import repo.database.utils.AbstractDataBaseRepo;
 import repo.database.utils.DataBaseAcces;
@@ -29,16 +28,13 @@ public class DataBaseRepoFactory implements IDataBaseFactory {
     @Override
     public AbstractDataBaseRepo createRepo(EDataBaseStrategy strategy, IValidator validator) {
         switch (strategy) {
-            case TABLE -> {
+            case restaurant_table -> {
                 return new TableDataBaseRepo(validator, data, strategy.toString());
             }
-            case ORDER -> {
+            case restaurant_order -> {
                 return new OrderDataBaseRepo(validator, data, strategy.toString());
             }
-            case ORDER_ITEM -> {
-                return new OrderItemDataBaseRepo(validator, data, strategy.toString());
-            }
-            case MENU_ITEM -> {
+            case menu_item -> {
                 return new MenuItemDataBaseRepo(validator, data, strategy.toString());
             }
             default -> {

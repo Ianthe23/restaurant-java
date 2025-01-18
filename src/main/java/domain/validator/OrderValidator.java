@@ -16,6 +16,9 @@ public class OrderValidator implements IValidator<Order> {
         if (entity.getDate().equals("")) {
             errors += "The date cannot be empty!\n";
         }
+        if (entity.getItems().isEmpty()) {
+            errors += "The menu items list cannot be empty!\n";
+        }
         if (entity.getStatus() == null) {
             errors += "The status cannot be null!\n";
         }

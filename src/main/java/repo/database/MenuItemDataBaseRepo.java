@@ -3,6 +3,8 @@ package repo.database;
 import domain.MenuItem;
 import domain.Table;
 import domain.validator.IValidator;
+import repo.IMenuItemRepo;
+import repo.IRepository;
 import repo.database.utils.AbstractDataBaseRepo;
 import repo.database.utils.DataBaseAcces;
 
@@ -13,13 +15,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class MenuItemDataBaseRepo extends AbstractDataBaseRepo<String, MenuItem> {
+public class MenuItemDataBaseRepo extends AbstractDataBaseRepo<String, MenuItem> implements IMenuItemRepo {
     private static final String GET_BY_ID_SQL = "SELECT * FROM menu_item WHERE id = ?";
     private static final String GET_ALL_SQL = "SELECT * FROM menu_item";
     private static final String INSERT_SQL = "INSERT INTO menu_item (category, item, price, currency) VALUES (?, ?, ?, ?) RETURNING id";
     private static final String DELETE_SQL = "DELETE FROM menu_item WHERE id = ?";
     private static final String UPDATE_SQL = "UPDATE menu_item SET category = ?, item = ?, price = ?, currency = ? WHERE id = ?";
-    private static final String GET_BY_CATEGORY_SQL = "SELECT category, item, price, currency FROM menu_item ORDER BY category, item";
+    private static final String GET_BY_CATEGORY_SQL = "SELECT id, item, price, currency FROM menu_item WHERE category = ?";
 
     public MenuItemDataBaseRepo(IValidator validator, DataBaseAcces data, String table) {
         super(validator, data, table);
@@ -117,7 +119,37 @@ public class MenuItemDataBaseRepo extends AbstractDataBaseRepo<String, MenuItem>
         }
     }
 
-    public Iterable<MenuItem> getAllByCategory() {
-        return getList(GET_BY_CATEGORY_SQL);
+    @Override
+    public List<MenuItem> getAllByCategory(String category) {
+        List<MenuItem> menus = new ArrayList<>();
+        try (PreparedStatement statement = data.createStatement(GET_BY_CATEGORY_SQL)) {
+            statement.setString(1, category);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    String id = resultSet.getString("id");
+                    String item = resultSet.getString("item");
+                    double price = resultSet.getDouble("price");
+                    String currency = resultSet.getString("currency");
+                    menus.add(new MenuItem(id ,category, item, price, currency));
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return menus;
+    }
+
+    @Override
+    public List<String> getCategories() {
+        List<String> categories = new ArrayList<>();
+        try (PreparedStatement statement = data.createStatement("SELECT DISTINCT category FROM menu_item");
+             ResultSet resultSet = statement.executeQuery()) {
+            while (resultSet.next()) {
+                categories.add(resultSet.getString("category"));
+            }
+            return categories;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

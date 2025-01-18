@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>1311</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1315</IntrospectionStateNumber>
       <ServerVersion>17.0</ServerVersion>
       <StartupTime>1736966069</StartupTime>
       <TimeZones>true ACDT
@@ -805,7 +805,7 @@ false Zulu
 14704||10|C|G
 14704||-9223372036854775808|U|G
 14704||10|U|G</Grants>
-      <IntrospectionStateNumber>1311</IntrospectionStateNumber>
+      <IntrospectionStateNumber>1315</IntrospectionStateNumber>
       <ObjectId>16656</ObjectId>
       <OwnerName>postgres</OwnerName>
     </database>
@@ -4271,8 +4271,8 @@ false Zulu
     <schema id="266" parent="3" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>1311</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-01-18.10:54:01</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>1315</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-01-18.14:09:25</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>532</StateNumber>
       <OwnerName>pg_database_owner</OwnerName>
@@ -4667,8 +4667,8 @@ false Zulu
       <OwnerName>postgres</OwnerName>
     </table>
     <table id="304" parent="266" name="order_item">
-      <ObjectId>16717</ObjectId>
-      <StateNumber>1310</StateNumber>
+      <ObjectId>16732</ObjectId>
+      <StateNumber>1314</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>postgres</OwnerName>
     </table>
@@ -5233,30 +5233,30 @@ false Zulu
     <column id="437" parent="304" name="order_id">
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>1310</StateNumber>
+      <StateNumber>1314</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
     <column id="438" parent="304" name="menu_item_id">
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>1310</StateNumber>
+      <StateNumber>1314</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
     <foreign-key id="439" parent="304" name="fk_order">
       <ColNames>order_id</ColNames>
-      <ObjectId>16722</ObjectId>
+      <ObjectId>16737</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>1310</StateNumber>
+      <StateNumber>1314</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16706</RefTableId>
     </foreign-key>
     <foreign-key id="440" parent="304" name="fk_menu_item">
       <ColNames>menu_item_id</ColNames>
-      <ObjectId>16727</ObjectId>
+      <ObjectId>16742</ObjectId>
       <OnDelete>cascade</OnDelete>
-      <StateNumber>1310</StateNumber>
+      <StateNumber>1314</StateNumber>
       <RefKeyColPositions>1</RefKeyColPositions>
       <RefTableId>16700</RefTableId>
     </foreign-key>
@@ -5264,18 +5264,18 @@ false Zulu
       <ColNames>order_id
 menu_item_id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16720</ObjectId>
+      <ObjectId>16735</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1310</StateNumber>
+      <StateNumber>1314</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
     <key id="442" parent="304" name="order_item_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16721</ObjectId>
+      <ObjectId>16736</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>1310</StateNumber>
-      <UnderlyingIndexId>16720</UnderlyingIndexId>
+      <StateNumber>1314</StateNumber>
+      <UnderlyingIndexId>16735</UnderlyingIndexId>
     </key>
     <column id="443" parent="305" name="id">
       <DefaultExpression>gen_random_uuid()</DefaultExpression>

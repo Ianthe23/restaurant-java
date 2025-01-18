@@ -18,7 +18,6 @@ public class ValidatorFactory implements IValidatorFactory{
         return switch (strategy) {
             case TABLE -> new TableValidator();
             case ORDER -> new OrderValidator();
-            case ORDER_ITEM -> new OrderItemValidator();
             case MENU_ITEM -> new MenuItemValidator();
             default -> null;
         };
