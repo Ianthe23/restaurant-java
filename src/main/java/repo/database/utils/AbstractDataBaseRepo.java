@@ -2,7 +2,7 @@ package repo.database.utils;
 
 import domain.Entity;
 import domain.validator.IValidator;
-import repo.database.IRepository;
+import repo.IRepository;
 
 public abstract class AbstractDataBaseRepo <ID, E extends Entity<ID>> implements IRepository<ID, E> {
     protected IValidator validator;

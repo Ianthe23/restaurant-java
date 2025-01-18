@@ -4,13 +4,13 @@ import enums.Status;
 
 import java.time.LocalDateTime;
 
-public class Order extends Entity<Pair<String, String>>{
+public class Order extends Entity<String>{
     private Table table;
     private LocalDateTime date;
     private Status status;
 
     public Order(String id, Table table, LocalDateTime date, Status status) {
-        super.setId(new Pair(id, table.getId()));
+        super.setId(id);
         this.table = table;
         this.date = date;
         this.status = status;
@@ -43,7 +43,7 @@ public class Order extends Entity<Pair<String, String>>{
     @Override
     public String toString() {
         return "Order{" +
-                "id='" + super.getId().getLeft() + '\'' +
+                "id='" + super.getId() + '\'' +
                 ", table=" + table +
                 ", date=" + date +
                 ", status=" + status +

@@ -10,7 +10,7 @@ public class OrderValidator implements IValidator<Order> {
         if (entity.getTable() == null) {
             errors += "The table cannot be null!\n";
         }
-        if (entity.getId().getLeft() == null || entity.getId().getRight() == null) {
+        if (entity.getId() == null) {
             errors += "The id cannot be null!\n";
         }
         if (entity.getDate().equals("")) {

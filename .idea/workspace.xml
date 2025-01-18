@@ -4,7 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="first commit" />
+    <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="first commit">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/controller/AngajatiController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/restaurante/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/restaurante/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/IService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/service/RestaurantService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/events/EEventType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/events/IEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/events/RestaurantEvent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/observer/IObservable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/observer/IObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/validator/OrderValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/restaurante/HelloApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/restaurante/HelloController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/IMenuItemRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/IOrderItemRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/IOrderRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/ITableRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/MenuItemDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/MenuItemDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/OrderItemDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderItemDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/utils/AbstractDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/utils/AbstractDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,9 +59,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Ianthe23&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:Ianthe23/restaurant-java.git&quot;,
+    &quot;accountId&quot;: &quot;bc797c28-8338-4e02-afb4-8a290ea29275&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2rnFKKbPQdcw1k23mUXHrJfi7h5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -39,20 +82,35 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.restaurante [:Main.main()].executor": "Run",
+    "Gradle.restaurante [:org.example.restaurante.App.main()].executor": "Run",
     "Gradle.restaurante [:org.example.restaurante.HelloApplication.main()].executor": "Run",
+    "Gradle.restaurante [:org.example.restaurante.Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Ivona/Facultate/MAP/sem12_skeleton 1",
+    "last_opened_file_path": "C:/Users/Ivona/Facultate/MAP/restaurante",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "advanced.settings",
     "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.example.restaurante" />
+      <recent name="" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -69,7 +127,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1737186869167</updated>
-      <workItem from="1737186870158" duration="6925000" />
+      <workItem from="1737186870158" duration="7334000" />
+      <workItem from="1737195516027" duration="10132000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
