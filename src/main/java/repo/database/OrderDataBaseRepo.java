@@ -19,8 +19,10 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
-    private static final String GET_ALL_IDS_SQL = """
-            SELECT id FROM restaurant_order;
+    private static final String GET_ALL_IDS_ASC_BY_DATE_SQL = """
+            SELECT id
+            FROM restaurant_order
+            ORDER BY date ASC;
             """;
     private static final String GET_BY_ID_WITH_SUBENTITY_SQL = """
             SELECT
@@ -117,7 +119,7 @@ public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
     @Override
     public Iterable<Order> findAll() {
         List<Order> orders = new ArrayList<>();
-        try (PreparedStatement statement = data.createStatement(GET_ALL_IDS_SQL);
+        try (PreparedStatement statement = data.createStatement(GET_ALL_IDS_ASC_BY_DATE_SQL);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
                 String orderId = resultSet.getObject("id", UUID.class).toString();
