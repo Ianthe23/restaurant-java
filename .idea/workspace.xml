@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/AngajatiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/AngajatiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/RestaurantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/RestaurantService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +62,10 @@
     "Gradle.restaurante [:Main.main()].executor": "Run",
     "Gradle.restaurante [:org.example.restaurante.App.main()].executor": "Run",
     "Gradle.restaurante [:org.example.restaurante.HelloApplication.main()].executor": "Run",
-    "Gradle.restaurante [:org.example.restaurante.Main.main()].executor": "Debug",
+    "Gradle.restaurante [:org.example.restaurante.Main.main()].executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Ivona/Facultate/MAP/restaurante",
@@ -126,7 +125,7 @@
       <option name="presentableId" value="Default" />
       <updated>1737186869167</updated>
       <workItem from="1737186870158" duration="7334000" />
-      <workItem from="1737195516027" duration="30262000" />
+      <workItem from="1737195516027" duration="36556000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -145,6 +144,30 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/MenuController.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/controller/AngajatiController.java</url>
+          <line>54</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java</url>
+          <line>131</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/restaurante$Main.ic" NAME="Main Coverage Results" MODIFIED="1737210342877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

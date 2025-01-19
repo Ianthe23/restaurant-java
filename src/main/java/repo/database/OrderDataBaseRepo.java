@@ -19,21 +19,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
-    private static final String GET_ALL_WITH_SUBENTITY_SQL = """
-            SELECT
-                o.id AS order_id,
-                o.tableId AS table_id,
-                o.date AS order_date,
-                o.status AS order_status,
-                m.id AS menu_item_id,
-                m.category AS menu_item_category,
-                m.item AS menu_item_name,
-                m.price AS menu_item_price,
-                m.currency AS menu_item_currency
-            FROM restaurant_order o
-            JOIN order_item oi ON o.id = oi.orderId
-            JOIN menu_item m ON oi.menuItemId = m.id
-            ORDER BY o.id, m.id;
+    private static final String GET_ALL_IDS_SQL = """
+            SELECT id FROM restaurant_order;
             """;
     private static final String GET_BY_ID_WITH_SUBENTITY_SQL = """
             SELECT
@@ -74,36 +61,48 @@ public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
     }
 
     private static Order getOrder(ResultSet resultSet) throws SQLException {
-        String table_id = resultSet.getString("table_id");
-        Table table = new Table(table_id);
-
-        String id = resultSet.getString("id");
-        Timestamp dateTs = resultSet.getTimestamp("date");
+        // Extract the order details (from the first row for this order)
+        String orderId = resultSet.getString("order_id");
+        String tableId = resultSet.getString("table_id");
+        Table table = new Table(tableId);
+        Timestamp dateTs = resultSet.getTimestamp("order_date");
         LocalDateTime date = dateTs != null ? dateTs.toLocalDateTime() : null;
-        String status = resultSet.getString("status");
-
-        //check if status is from enum Status
+        String status = resultSet.getString("order_status");
         Status statusEnum = Status.valueOf(status);
 
-        //get menu items
+        // Collect menu items for this order
         List<MenuItem> menuItems = new ArrayList<>();
-        do {
-            String menu_item_id = resultSet.getString("menu_item_id");
-            String menu_item_category = resultSet.getString("menu_item_category");
-            String menu_item_name = resultSet.getString("menu_item_name");
-            double menu_item_price = resultSet.getDouble("menu_item_price");
-            String menu_item_currency = resultSet.getString("menu_item_currency");
-            MenuItem menuItem = new MenuItem(menu_item_id, menu_item_category, menu_item_name, menu_item_price, menu_item_currency);
-            menuItems.add(menuItem);
-        } while (resultSet.next() && resultSet.getString("order_id").equals(id));
 
-        return new Order(id, table, date, statusEnum, menuItems);
+        // Process the first menu item row
+        do {
+            // Extract menu item details
+            String currentOrderId = resultSet.getString("order_id");
+
+            // If we have already encountered a different order, stop processing
+            if (!currentOrderId.equals(orderId)) {
+                break;
+            }
+
+            String menuItemId = resultSet.getString("menu_item_id");
+            String category = resultSet.getString("menu_item_category");
+            String name = resultSet.getString("menu_item_name");
+            double price = resultSet.getDouble("menu_item_price");
+            String currency = resultSet.getString("menu_item_currency");
+
+            // Add menu item to the list
+            MenuItem menuItem = new MenuItem(menuItemId, category, name, price, currency);
+            menuItems.add(menuItem);
+
+        } while (resultSet.next()); // Move to the next row
+
+        // Return the fully populated order
+        return new Order(orderId, table, date, statusEnum, menuItems);
     }
 
     @Override
     public Optional<Order> findOne(String s) {
         try (PreparedStatement statement = data.createStatement(GET_BY_ID_WITH_SUBENTITY_SQL)) {
-            statement.setString(1, s);
+            statement.setObject(1, UUID.fromString(s));
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
                     return Optional.of(getOrder(resultSet));
@@ -118,10 +117,12 @@ public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
     @Override
     public Iterable<Order> findAll() {
         List<Order> orders = new ArrayList<>();
-        try (PreparedStatement statement = data.createStatement(GET_ALL_WITH_SUBENTITY_SQL);
+        try (PreparedStatement statement = data.createStatement(GET_ALL_IDS_SQL);
              ResultSet resultSet = statement.executeQuery()) {
             while (resultSet.next()) {
-                orders.add(getOrder(resultSet));
+                String orderId = resultSet.getObject("id", UUID.class).toString();
+                Optional<Order> order = findOne(orderId);
+                order.ifPresent(orders::add);
             }
             return orders;
         } catch (SQLException e) {

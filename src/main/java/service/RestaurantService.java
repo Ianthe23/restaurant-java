@@ -6,6 +6,7 @@ import domain.Table;
 import enums.Status;
 import repo.IMenuItemRepo;
 import repo.IRepository;
+import utils.events.EEventType;
 import utils.events.RestaurantEvent;
 import utils.observer.IObservable;
 import utils.observer.IObserver;
@@ -52,8 +53,13 @@ public class RestaurantService implements IService<Integer>, IObservable<Restaur
         if (addedOrder.isEmpty()) {
             throw new RuntimeException("Order not added");
         }
+
+        notifyObservers(new RestaurantEvent(EEventType.PLACED, addedOrder.get()));
     }
 
+    public Iterable<Order> getOrdersByStatus(Status status) {
+        return orderRepo.findAll();
+    }
 
     @Override
     public void addObserver(IObserver<RestaurantEvent> e) {
