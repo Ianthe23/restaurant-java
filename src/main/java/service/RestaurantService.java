@@ -2,15 +2,19 @@ package service;
 
 import domain.MenuItem;
 import domain.Order;
+import domain.Table;
+import enums.Status;
 import repo.IMenuItemRepo;
 import repo.IRepository;
 import utils.events.RestaurantEvent;
 import utils.observer.IObservable;
 import utils.observer.IObserver;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observer;
+import java.util.Optional;
 import java.util.stream.StreamSupport;
 
 public class RestaurantService implements IService<Integer>, IObservable<RestaurantEvent> {
@@ -37,8 +41,17 @@ public class RestaurantService implements IService<Integer>, IObservable<Restaur
         return menuItemRepo.getAllByCategory(category);
     }
 
-    public void addOrder(Integer tableId, List<MenuItem> menuItems) {
+    public void addOrder(String tableId, List<MenuItem> menuItems) {
+        Optional<Table> table = tableRepo.findOne(tableId);
+        if (table.isEmpty()) {
+            throw new RuntimeException("Table not found");
+        }
 
+        Order order = new Order("a", table.get(), LocalDateTime.now(), Status.PLACED, menuItems);
+        Optional<Order> addedOrder = orderRepo.save(order);
+        if (addedOrder.isEmpty()) {
+            throw new RuntimeException("Order not added");
+        }
     }
 
 

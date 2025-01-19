@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class TableDataBaseRepo extends AbstractDataBaseRepo<String, Table> {
     private static final String GET_BY_ID_SQL = "select * from restaurant_table where id = ?";
@@ -47,7 +48,7 @@ public class TableDataBaseRepo extends AbstractDataBaseRepo<String, Table> {
     public Optional<Table> findOne(String s) {
         try {
             PreparedStatement statement = data.createStatement(GET_BY_ID_SQL);
-            statement.setString(1, s);
+            statement.setObject(1, UUID.fromString(s));
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 return Optional.of(getTable(resultSet));

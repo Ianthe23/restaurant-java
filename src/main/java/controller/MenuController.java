@@ -5,10 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import service.RestaurantService;
 import javafx.beans.property.SimpleStringProperty;
@@ -25,6 +22,9 @@ public class MenuController {
     @FXML
     private VBox tableContainer;
 
+    @FXML
+    private Button place_order_btn;
+
     private Map<TableView<MenuItem>, ObservableList<MenuItem>> selectedItemsMap = new HashMap<>();
 
     @FXML
@@ -33,13 +33,12 @@ public class MenuController {
 
     @FXML
     private void handlePlacingOrder() {
+        System.out.println("Placing order");
         // Get the selected items from all tables
-        for (Map.Entry<TableView<MenuItem>, ObservableList<MenuItem>> entry : selectedItemsMap.entrySet()) {
-            TableView<MenuItem> tableView = entry.getKey();
-            ObservableList<MenuItem> selectedItems = entry.getValue();
+        ObservableList<MenuItem> selectedItems = FXCollections.observableArrayList();
+        selectedItemsMap.values().forEach(selectedItems::addAll);
 
-
-        }
+        service.addOrder(menu_id.getText(), selectedItems);
     }
 
     private void initializeVBox() {

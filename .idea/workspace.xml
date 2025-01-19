@@ -5,26 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e9c7cfe7-381e-4dda-a694-c29a8c742c89" name="Changes" comment="first commit">
-      <change afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/repo/IMenuItemRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/views/menu-view.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d20fe60-4a23-4011-9860-2b59ccbf102b.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d20fe60-4a23-4011-9860-2b59ccbf102b.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/6d20fe60-4a23-4011-9860-2b59ccbf102b/storage_v2/_src_/database/restaurant.PUtalg/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/6d20fe60-4a23-4011-9860-2b59ccbf102b/storage_v2/_src_/database/restaurant.PUtalg/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/OrderItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Pair.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/EValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/validator/EValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/OrderItemValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/OrderValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/validator/OrderValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/validator/ValidatorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/validator/ValidatorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/restaurante/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/restaurante/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/MenuItemDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/MenuItemDataBaseRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MenuController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/OrderDataBaseRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/OrderItemDataBaseRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/DataBaseRepoFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/factory/EDataBaseStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/factory/EDataBaseStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/repo/database/TableDataBaseRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/service/RestaurantService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/service/RestaurantService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/org/example/restaurante/hello-view.fxml" afterDir="false" />
     </list>
@@ -80,7 +64,7 @@
     "Gradle.restaurante [:Main.main()].executor": "Run",
     "Gradle.restaurante [:org.example.restaurante.App.main()].executor": "Run",
     "Gradle.restaurante [:org.example.restaurante.HelloApplication.main()].executor": "Run",
-    "Gradle.restaurante [:org.example.restaurante.Main.main()].executor": "Run",
+    "Gradle.restaurante [:org.example.restaurante.Main.main()].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "master",
@@ -142,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1737186869167</updated>
       <workItem from="1737186870158" duration="7334000" />
-      <workItem from="1737195516027" duration="25907000" />
+      <workItem from="1737195516027" duration="30262000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -161,17 +145,6 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <option name="LAST_COMMIT_MESSAGE" value="first commit" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/example/restaurante/App.java</url>
-          <line>57</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/restaurante$Main.ic" NAME="Main Coverage Results" MODIFIED="1737210342877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">

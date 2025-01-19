@@ -16,6 +16,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
     private static final String GET_ALL_WITH_SUBENTITY_SQL = """
@@ -131,7 +132,7 @@ public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
     @Override
     public Optional<Order> save(Order entity) {
         try (PreparedStatement statement = data.createStatement(INSERT_INTO_ORDER_SQL)) {
-            statement.setString(1, entity.getTable().getId());
+            statement.setObject(1, UUID.fromString(entity.getTable().getId()));
             statement.setTimestamp(2, Timestamp.valueOf(entity.getDate()));
             statement.setString(3, entity.getStatus().name());
             ResultSet resultSet = statement.executeQuery();
@@ -145,8 +146,8 @@ public class OrderDataBaseRepo extends AbstractDataBaseRepo<String, Order> {
 
         try (PreparedStatement statement = data.createStatement(INSERT_INTO_ORDER_ITEMS_SQL)) {
             for (MenuItem menuItem : entity.getItems()) {
-                statement.setString(1, entity.getId());
-                statement.setString(2, menuItem.getId());
+                statement.setObject(1, UUID.fromString(entity.getId()));
+                statement.setObject(2, UUID.fromString(menuItem.getId()));
                 statement.addBatch();
             }
             statement.executeBatch();
